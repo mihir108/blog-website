@@ -1,5 +1,5 @@
 //jshint esversion:6
-
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const _ = require("lodash");
@@ -9,7 +9,7 @@ const mongoose = require("mongoose");
 
 mongoose.pluralize(null);
 
-mongoose.connect("mongodb+srv://admin-mihir:spear123@cluster0.knn8o.mongodb.net/blogDatabase", { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
+mongoose.connect(process.env.MONGO_URL, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
 
 const blogSchema = new mongoose.Schema({
   title: String,
